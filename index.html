@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Document</title>
+</head>
+
+<body onload="onInit()">
+    <div class="nav">
+
+    </div>
+
+    <div class="container pics-container">
+
+        <!-- <img class="mempic 1" src="img/1.jpg" onclick="loadMemToCanavas(this)">
+        <img class="mempic 2" src="img/2.jpg">
+        <img class="mempic 3" src="img/3.jpg">
+        <img class="mempic 4" src="img/4.jpg">
+        <img class="mempic 5" src="img/5.jpg">
+        <img class="mempic 6" src="img/6.jpg"> -->
+
+    </div>
+    <button class="btn-next" onclick="onNextPage()">Next Page</button>
+
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="onClosePic()">&times;</span>
+
+        <!-- Modal content -->
+
+        <div class="modal-content canvas-container">
+
+
+            <!-- <canvas onclick="draw(event)" id="my-canvas" height="400" width="400" -->
+            <canvas id="my-canvas" height="400" width="400"
+                style="border: 1px solid black;"></canvas>
+                <section class="editInputs">
+
+                    <label for="text1">text1:</label>
+                    <input type="text" id="text1" name="1" placeholder="enter 1st text" oninput="writeOnCanvas(id,name)"/>
+    
+                    <label for="text2">text2:</label>
+                    <input type="text" id="text2" name="2" placeholder="enter 2nd text" oninput="writeOnCanvas(id,name)"/>
+    
+                </section>
+
+        
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <script src="js/util-service.js"></script>
+    <script src="js/storage-service.js"></script>
+    <!-- <script src="js/MemeGen-service.js"></script>
+    <script src="js/MemeGen-controller.js"></script> -->
+
+    <script src="js/Gallery-service.js"></script>
+    <script src="js/Generator-service.js"></script>
+
+    <script src="js/Gallery-controller.js"></script>
+    <script src="js/Generator-controller.js"></script>
+
+
+
+
+</body>
+
+</html>

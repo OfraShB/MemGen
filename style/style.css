@@ -1,0 +1,82 @@
+
+/* * {
+	box-sizing: border-box;
+} */
+
+body {
+    margin: 0;
+    /* text-align: center; */
+}
+.pics-container{
+
+    margin-top: 100px;
+    margin-left: 100px;
+
+    display: grid;
+    grid-template-columns:  repeat(5, 110px); 
+    grid-template-rows:  repeat(5, 110px);
+}
+.mempic{
+    width: 100px;
+    height: 100px;
+}
+
+.modal {
+        /* Hidden by default */
+    display: none; 
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    background-color: rgb(228, 185, 92);
+    
+
+    /* position: fixed; */
+     /* Stay in place */
+    z-index: 1; /* Sit on top */
+    /* left: 0;
+    top: 0; */
+    width: 90%; /* Full width */
+    height: 90%; /* Full height */
+    padding: 10px;
+
+    
+
+    /* overflow: auto;  */
+    /* Enable scroll if needed */
+
+    /*given bgcolor and opacity to check later*/
+    /* background-color: rgb(0,0,0); /* Fallback color */
+    /* background-color: rgba(0,0,0,0.4); Black w/ opacity */ 
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+
+    display: grid; 
+    grid-template-columns:   repeat(5, 1fr); 
+
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Could be more or less, depending on screen size */
+    height: 82%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color:lightslategrey;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .editInputs{
+    grid-column: 3/6;
+  }
