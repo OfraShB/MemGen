@@ -9,65 +9,147 @@
 </head>
 
 <body onload="onInit()">
-    <div class="nav">
 
-    </div>
+    <div class="container main-container">
 
-    <div class="container pics-container">
+        <header class="main-header">
 
-        <!-- <img class="mempic 1" src="img/1.jpg" onclick="loadMemToCanavas(this)">
+            <div class="logo">MemGen</div>
+            <div class="nav container">
+
+                <ul class="nav clean-list">
+                    <!-- <li>
+                    <button id="nav-btn" class="btn-nav" onclick="navTo(event)">Jour</button>
+                </li> -->
+                    <li>
+                        <button class="btn-nav" onclick="navTo(event)">About</button>
+                    </li>
+                    <li>
+                        <button class="btn-nav" onclick="navTo(event)">Gallery</button>
+                    </li>
+                    <li>
+                        <button class="btn-nav" onclick="navTo(event)">Why MemGen?</button>
+                    </li>
+                </ul>
+
+            </div>
+        </header>
+
+        <div class="container main-pics-container">
+
+            <div class="container pics-container">
+
+                <!-- <img class="mempic 1" src="img/1.jpg" onclick="loadMemToCanavas(this)">
         <img class="mempic 2" src="img/2.jpg">
         <img class="mempic 3" src="img/3.jpg">
         <img class="mempic 4" src="img/4.jpg">
         <img class="mempic 5" src="img/5.jpg">
         <img class="mempic 6" src="img/6.jpg"> -->
 
-    </div>
-    <button class="btn-next" onclick="onNextPage()">Next Page</button>
-
-
-    <div id="myModal" class="modal">
-        <span class="close" onclick="onClosePic()">&times;</span>
-
-        <!-- Modal content -->
-
-        <div class="modal-content canvas-container">
-
-
-            <!-- <canvas onclick="draw(event)" id="my-canvas" height="400" width="400" -->
-            <canvas id="my-canvas" height="400" width="400"
-                style="border: 1px solid black;"></canvas>
-                <section class="editInputs">
-
-                    <label for="text1">text1:</label>
-                    <input type="text" id="text1" name="1" placeholder="enter 1st text" oninput="writeOnCanvas(id,name)"/>
-    
-                    <label for="text2">text2:</label>
-                    <input type="text" id="text2" name="2" placeholder="enter 2nd text" oninput="writeOnCanvas(id,name)"/>
-    
-                </section>
-
-        
+            </div>
+            <!-- <button class="btn-next" onclick="onNextPage()">Next Page</button> -->
         </div>
 
 
-    </div>
+        <div id="myModal" class="modal">
+            <span class="close" onclick="onClosePic()">&times;</span>
+
+            <!-- Modal content -->
+
+            <div class="modal-content canvas-container">
+                <!-- <span class="close" onclick="onClosePic()">&times;</span> -->
+
+                <!-- <canvas onclick="draw(event)" id="my-canvas" height="400" width="400" -->
+                <canvas class="can" id="my-canvas" height="400" width="400" style="border: 1px solid black;"
+                    onclick="drop(event)"></canvas>
+
+                <section class="editInputs">
+
+                    <!-- <label for="text1">text1:</label> -->
+                    <input class="txt text1" type="text" id="text1" name="1" placeholder="enter 1st text"
+                        oninput="writeOnCanvas(id,name)" />
+
+                    <!-- <label for="teclassxt2">text2:</label> -->
+                    <input class="txt text2" type="text" id="text2" name="2" placeholder="enter 2nd text"
+                        oninput="writeOnCanvas(id,name)" />
+
+                    <button class="font-btn increase" onclick="setTextSize(5)">A+</button>
+                    <button class="font-btn decrease" onclick="setTextSize(-5)">A-</button>
+
+                    <container class="updown">
+
+                        <button class="updown-btn up" onclick="setTextLocation(5)">V</button>
+                        <button class="updown-btn down" onclick="setTextLocation(-5)">^</button>
+
+                    </container>
+
+                    <button class="switch-line" onclick="switcLines()">V^</button>
+
+                    <input class="chcolor" type="color" id="chosecolor" name="chosecolor" value="#ff0000"
+                        onchange="changeTxtColor()" />
+
+                    <!-- <label for="font-fam">Impact</label> -->
+
+                    <!-- <label for="fontfam" class="lblffam">Impact</label> -->
+                    <!-- onselect -->
+                    <select class="ffam" name="fontfam" id="fontfam" onchange="changeTxtFontFam()">
+                        <option class="Impact" value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Courier">Courier</option>
+                        <option value="Comic Sans">Comic Sans</option>
+                        <option value="fantasy">fantasy</option>
+                    </select>
+
+                    <!-- <label for="fsize">Choose a car:</label> -->
+
+                    <select class="fsiz" name="fsize" id="fsize" onchange="changTxtSize()">
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="60">60</option>
+                        <option value="70">70</option>
+                    </select>
+
+                    <button class="btnright" name="right" onclick="setalig(name)">right</button>
+                    <button class="btncenter" name="center" onclick="setalig(name)">center</button>
+                    <button class="btnleft" name="left" onclick="setalig(name)">left</button>
+                    <button class="btnclear" onclick="clearTxt()">clear</button>
+                </section>
+                <!-- <button class = "btnsave" onclick="saveToLocal()">save</button>
+                <button class = "btndownload" onclick="downLoad()">download</button>-->
+                <!-- <button class = "btnshare" onclick="sharFaceBook()">share</button> -->
+
+
+                <!-- <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" /> -->
+                <section class="publish">
+                    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                        <input name="img" id="imgData" type="hidden" />
+                        <button class="btn" type="submit">Publish</button>
+                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+                        <div class="share-container"></div>
+                    </form>
+                </section>
 
 
 
+            </div>
+
+        </div>
 
 
+        <script src="js/util-service.js"></script>
+        <script src="js/storage-service.js"></script>
+        <script src="js/upload-service.js"></script>
 
-    <script src="js/util-service.js"></script>
-    <script src="js/storage-service.js"></script>
-    <!-- <script src="js/MemeGen-service.js"></script>
+        <!-- <script src="js/MemeGen-service.js"></script>
     <script src="js/MemeGen-controller.js"></script> -->
 
-    <script src="js/Gallery-service.js"></script>
-    <script src="js/Generator-service.js"></script>
+        <script src="js/Gallery-service.js"></script>
+        <script src="js/Generator-service.js"></script>
 
-    <script src="js/Gallery-controller.js"></script>
-    <script src="js/Generator-controller.js"></script>
+        <script src="js/Gallery-controller.js"></script>
+        <script src="js/Generator-controller.js"></script>
 
 
 
