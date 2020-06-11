@@ -105,8 +105,8 @@ transition: .3s ease-in-out; */
         /* Hidden by default */
     display: none; 
     position: fixed;
-    top: 5%;
-    left: 5%;
+    top: 4%;
+    left: 4%;
     background-color: slategrey;
     border-radius: 10%;
     
