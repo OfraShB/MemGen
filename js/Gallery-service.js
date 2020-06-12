@@ -2,7 +2,7 @@
 
 const KEY = 'imgs';
 var gPageIdx = 0;
-const PAGE_SIZE = 12;
+const PAGE_SIZE = 4;
 
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
 
