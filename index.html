@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-    <title>Document</title>
+    <title>MemGen</title>
 </head>
 
 <body onload="onInit()">
 
-       
+
 
     <div class="container main-container">
 
-        
+
 
         <header class="main-header">
-            
+
 
             <div class="logo">MemGen</div>
 
             <!-- <button class="hamburger" onclick="toggleMenu()">☰</button>  -->
-           
+
             <div class="nav container">
-               
+
 
                 <ul class="nav clean-list">
                     <!-- <li>
@@ -34,11 +34,22 @@
                         <button class="btn-nav" onclick="navTo(event)">About</button>
                     </li>
                     <li>
-                        <button class="btn-nav" onclick="navTo(event)">Gallery</button>
+
+
+                        <select id ="lblslct" class = "btn-nav src-select" onchange="reloadList()" >
+                            <option value="srch">Search</option>
+                            <option value="happy">happy</option>
+                            <option value="rich">rich</option>
+                            <option value="cute">cute</option>
+                            <option value="nice">nice</option>
+                            <option value="sleepy">sleepy</option>
+                        </select>
                     </li>
                     <li>
                         <button class="btn-nav" onclick="navTo(event)">Why MemGen?</button>
                     </li>
+
+
                 </ul>
 
             </div>
@@ -83,19 +94,22 @@
                     <input class="txt text2" type="text" id="text2" name="2" placeholder="enter 2nd text"
                         oninput="writeOnCanvas(id,name)" />
                     <!-- <input type="button" class="font-btn increase" onclick="setTextSize(5)" /> -->
-                   
-                    <button class="font-btn increase" onclick="setTextSize(5)"><img src="icons/increase_1_1.png"></button>
-                    <button class="font-btn decrease" onclick="setTextSize(-5)"><img src="icons/decrease_1.png"></button>
+
+                    <button class="font-btn increase" onclick="setTextSize(5)"><img
+                            src="icons/increase_1_1.png"></button>
+                    <button class="font-btn decrease" onclick="setTextSize(-5)"><img
+                            src="icons/decrease_1.png"></button>
 
                     <container class="updown">
 
                         <button class="updown-btn up" onclick="setTextLocation(5)"><img src="icons/up_1.png"></button>
-                        <button class="updown-btn down" onclick="setTextLocation(-5)"><img src="icons/up_1.png"></button>
+                        <button class="updown-btn down" onclick="setTextLocation(-5)"><img
+                                src="icons/up_1.png"></button>
 
                     </container>
 
                     <button class="switch-line" onclick="switcLines()"><img src="icons/switch_1.png"></button>
-                   <!-- <div style="position:relative; display:inline-block" class="chcolor">
+                    <!-- <div style="position:relative; display:inline-block" class="chcolor">
                         <button type="button" class="btn btn-secondary herramienta"><i class="material-icons">format_color_text</i></button>
                         <input type="color" value="#ff0000" style="opacity:0; position:absolute; left:0;top:0;width:100%" onchange="changeTxtColor()"/>
                     </div> -->
@@ -128,7 +142,8 @@
                     </select>
 
                     <button class="btnright" name="right" onclick="setalig(name)"><img src="icons/right_1.png"></button>
-                    <button class="btncenter" name="center" onclick="setalig(name)"><img src="icons/center_1.png"></button>
+                    <button class="btncenter" name="center" onclick="setalig(name)"><img
+                            src="icons/center_1.png"></button>
                     <button class="btnleft" name="left" onclick="setalig(name)"><img src="icons/left_1.png"></button>
                     <button class="btnclear" onclick="clearTxt()"><img src="icons/trash_1.png"></button>
 
@@ -143,12 +158,13 @@
 
 
                 </section>
-  
+
                 <section class="publish">
                     <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                         <input name="img" id="imgData" type="hidden" />
                         <button class="btn-face" type="submit"><img src="icons/facebook_1.png"></button>
-                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg"><img src="icons/download_1.png"></a>
+                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg"><img
+                                src="icons/download_1.png"></a>
                         <div class="share-container"></div>
                     </form>
                 </section>
@@ -160,13 +176,13 @@
         </div>
     </div>
 
-    <!-- <script>
-        function toggleMenu(){
+    <script>
+        function toggleLablesSelect(){
 
-            document.body.classList.toggle('menu-open');
+            document.body.classList.toggle('hidden-select');
 
         }
-    </script> -->
+    </script>
 
 
     <script src="js/util-service.js"></script>

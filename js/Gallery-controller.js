@@ -22,9 +22,10 @@ function renderImgContainer() {
         <img class="mempic ${img.id}" id =${img.id} src="img/${img.id}.jpg" onclick="loadMemToCanavas(${img.id})">
             `
     })
-    console.log(strHtmls)
+    // console.log(strHtmls)
     document.querySelector('.pics-container').innerHTML = strHtmls.join('')
     document.querySelector('.btn-next').hidden = !hasNext()
+    createImgs();
 }
 
 function onNextPage() {
@@ -33,13 +34,28 @@ function onNextPage() {
 }
 
 
+function reloadList() {
+    var elLbl = document.getElementById("lblslct");
+    var labelSearched = elLbl.value
+
+
+    console.log(getImgs())
+    var newImgs = getImgs().filter(img => img.keywords.some(kw => kw === labelSearched));
+    // var newImgs = getImgs().filter(img => img.keywords.some(kw => console.log(kw)));
+    loadImgs(newImgs)
+    renderImgContainer()
+
+    // var searchedImgs = 
+}
+
+
 
 //load to canavas
-function loadMemToCanavas(id){
-    renderCanvas(id) 
+function loadMemToCanavas(id) {
+    renderCanvas(id)
 
     // loadImageFromInput(ev, renderCanvas)
-    gMeme.selectedImgId=id
+    gMeme.selectedImgId = id
 
 }
 
