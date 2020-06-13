@@ -11,53 +11,82 @@ function onInit() {
     gCtx = gCanvas.getContext('2d');
     createImgs()
     renderImgContainer()
-}
+
+
+    // function drawScribble(x,y) {
+    // elmod=document.querySelector(".modal")    
+    var elmod = document.getElementById('myModal');
+    
+    elmod.addEventListener('click', function scr(ev) {
+        
+        setTimeout(function(){ 
+            
+            // clearCanvas(gMeme.lines[0].xpos,gMeme.lines[0].ypos)
+            // clearCanvas(gMeme.lines[1].xpos,gMeme.lines[0].ypos)
+        }, 3000);
+        return
+        
+        //         gCtx.beginPath()
+        //         gCtx.moveTo(ev.offsetX-3, ev.offsetY-3)
+        //         gCtx.lineTo(ev.offsetX, ev.offsetY)
+        //         gCtx.closePath()
+        //         gCtx.strokeStyle = 'red'
+        //         gCtx.stroke()
+             })
+
+         
+
+
+
+
+
+    }
 
 function renderImgContainer() {
-    var imgs = getImgs()
+            var imgs = getImgs()
 
-    var strHtmls = imgs.map(function (img) {
-        // console.log(`${img.id}`)
-        return `
+            var strHtmls = imgs.map(function (img) {
+                // console.log(`${img.id}`)
+                return `
         <img class="mempic ${img.id}" id =${img.id} src="img/${img.id}.jpg" onclick="loadMemToCanavas(${img.id})">
             `
-    })
-    // console.log(strHtmls)
-    document.querySelector('.pics-container').innerHTML = strHtmls.join('')
-    document.querySelector('.btn-next').hidden = !hasNext()
-    createImgs();
-}
+            })
+            // console.log(strHtmls)
+            document.querySelector('.pics-container').innerHTML = strHtmls.join('')
+            document.querySelector('.btn-next').hidden = !hasNext()
+            createImgs();
+        }
 
 function onNextPage() {
-    nextPage();
-    renderImgContainer();
-}
+            nextPage();
+            renderImgContainer();
+        }
 
 
 function reloadList() {
-    var elLbl = document.getElementById("lblslct");
-    var labelSearched = elLbl.value
+            var elLbl = document.getElementById("lblslct");
+            var labelSearched = elLbl.value
 
 
-    console.log(getImgs())
-    var newImgs = getImgs().filter(img => img.keywords.some(kw => kw === labelSearched));
-    // var newImgs = getImgs().filter(img => img.keywords.some(kw => console.log(kw)));
-    loadImgs(newImgs)
-    renderImgContainer()
+            console.log(getImgs())
+            var newImgs = getImgs().filter(img => img.keywords.some(kw => kw === labelSearched));
+            // var newImgs = getImgs().filter(img => img.keywords.some(kw => console.log(kw)));
+            loadImgs(newImgs)
+            renderImgContainer()
 
-    // var searchedImgs = 
-}
+            // var searchedImgs = 
+        }
 
 
 
 //load to canavas
 function loadMemToCanavas(id) {
-    renderCanvas(id)
+            renderCanvas(id)
 
-    // loadImageFromInput(ev, renderCanvas)
-    gMeme.selectedImgId = id
+            // loadImageFromInput(ev, renderCanvas)
+            gMeme.selectedImgId = id
 
-}
+        }
 
 
 

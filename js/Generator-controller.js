@@ -34,6 +34,8 @@ function write(inputTextId, inputTextName, isReplaced) {
     var elInpText = document.getElementById(inputTextId)
     var txt = elInpText.value
 
+
+    // gCtx.clearRect(x, y)
     // console.log(elInpText.value)
 
     // rray1.forEach(element => console.log(element));
@@ -46,9 +48,15 @@ function write(inputTextId, inputTextName, isReplaced) {
         gCtx.textAlign = line.align;
         var diff = 0
 
-        if (inputTextName == index + 1 && !isReplaced) line.txt = txt
+        clearCanvas(line.xpos, line.ypos)
+        if (inputTextName == index + 1 && !isReplaced) {
+            line.txt = txt
+            drawLine(line.xpos, line.ypos)
+        }
 
         var textToWrite = (!line.txt) ? '' : line.txt
+
+        
         // gCtx.fillText(textTuWrite, line.xpos, line.ypos + diff);
         // gCtx.strokeText(textTuWrite, line.xpos, line.ypos + diff);
 
@@ -171,6 +179,23 @@ function loadImageFromInput(ev, onImageReady) {
     }
     reader.readAsDataURL(ev.target.files[0]);
 }
+
+
+function drawLine(x, y, xEnd = +300, yEnd = y) {
+    gCtx.beginPath()
+    gCtx.moveTo(x-80, y)
+    gCtx.lineTo(xEnd, yEnd)
+    gCtx.closePath()
+    // gCtx.strokeStyle = 'black'
+    gCtx.stroke()
+
+}
+function clearCanvas(x,y) {
+    gCtx.clearRect(x, y ,300, 1)
+    // You may clear part of the canvas
+    // gCtx.clearRect(50, 50, 200, 200);
+}
+
 
 
 
