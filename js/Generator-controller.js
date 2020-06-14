@@ -33,6 +33,7 @@ function write(inputTextId, inputTextName, isReplaced) {
 
     var elInpText = document.getElementById(inputTextId)
     var txt = elInpText.value
+    console.log(txt)
 
 
     // gCtx.clearRect(x, y)
@@ -51,8 +52,11 @@ function write(inputTextId, inputTextName, isReplaced) {
         clearCanvas(line.xpos, line.ypos)
         if (inputTextName == index + 1 && !isReplaced) {
             line.txt = txt
-            drawLine(line.xpos, line.ypos)
+            // drawLine(line.xpos, line.ypos)
+            
         }
+        
+
 
         var textToWrite = (!line.txt) ? '' : line.txt
 

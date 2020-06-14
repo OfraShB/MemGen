@@ -12,34 +12,23 @@ function onInit() {
     createImgs()
     renderImgContainer()
 
-
-    // function drawScribble(x,y) {
-    // elmod=document.querySelector(".modal")    
-    var elmod = document.getElementById('myModal');
+ 
+    // var elmod = document.getElementById('myModal');
     
-    elmod.addEventListener('click', function scr(ev) {
+    // elmod.addEventListener('click', function scr(ev) {
         
-        setTimeout(function(){ 
+    //     setTimeout(function(){ 
             
-            // clearCanvas(gMeme.lines[0].xpos,gMeme.lines[0].ypos)
-            // clearCanvas(gMeme.lines[1].xpos,gMeme.lines[0].ypos)
-        }, 3000);
-        return
-        
-        //         gCtx.beginPath()
-        //         gCtx.moveTo(ev.offsetX-3, ev.offsetY-3)
-        //         gCtx.lineTo(ev.offsetX, ev.offsetY)
-        //         gCtx.closePath()
-        //         gCtx.strokeStyle = 'red'
-        //         gCtx.stroke()
-             })
+    //         clearCanvas(gMeme.lines[0].xpos,gMeme.lines[0].ypos)
+    //         clearCanvas(gMeme.lines[1].xpos,gMeme.lines[0].ypos)
+    //         renderCanvas(gMeme.selectedImgId)
+            
+    //         write(gMeme.lines[0].xpos,gMeme.lines[0].ypos,false)
+    //         write(gMeme.lines[0].xpos,gMeme.lines[1].ypos,false)
+    //     }, 3000);
+    //     return
 
-         
-
-
-
-
-
+    //          })
     }
 
 function renderImgContainer() {
