@@ -1,10 +1,5 @@
 'use strict'
 
-
-
-
-
-
 //canvas controller:
 function renderCanvas(id) {
     // var shownImg = gImgs[id-1]
@@ -29,139 +24,198 @@ function onClosePic() {
 
 function write(inputTextId, inputTextName, isReplaced) {
 
-    // console.log(inputTextId, inputTextName)
 
     var elInpText = document.getElementById(inputTextId)
     var txt = elInpText.value
-    console.log(txt)
+    // console.log(txt)
 
-
-    // gCtx.clearRect(x, y)
-    // console.log(elInpText.value)
-
-    // rray1.forEach(element => console.log(element));
     gMeme.lines.forEach((line, index) => {
 
         gCtx.lineWidth = '2';
         gCtx.strokeStyle = line.color;
-        // gCtx.fillStyle = 'green';
+
         gCtx.font = line.size + 'px ' + line.fontfam;
         gCtx.textAlign = line.align;
-        var diff = 0
+    
 
-        clearCanvas(line.xpos, line.ypos)
         if (inputTextName == index + 1 && !isReplaced) {
             line.txt = txt
-            // drawLine(line.xpos, line.ypos)
             
         }
         
-
-
         var textToWrite = (!line.txt) ? '' : line.txt
 
-        
-        // gCtx.fillText(textTuWrite, line.xpos, line.ypos + diff);
-        // gCtx.strokeText(textTuWrite, line.xpos, line.ypos + diff);
 
         gCtx.fillText(textToWrite, line.xpos, line.ypos);
         gCtx.strokeText(textToWrite, line.xpos, line.ypos);
 
-
     })
 
-
 }
-function writeOnCanvas(inputTextId, inpuTextName, isReplaced) {
 
 
-    renderCanvas(gMeme.selectedImgId)
-    gMeme.selectedLineIdx = inputTextId
+//////////////////////////////////////////////////////////////////////
+
+function onWriteOnCanvas(inputTextId, inpuTextName, isReplaced){
+  
+    renderCanvas(getMeme().selectedImgId)
+
+    updateMeme('selectedLineIdx',inputTextId)
+
     write(inputTextId, inpuTextName, isReplaced)
-}
-
-
-function setTextSize(unit, elName) {
-
-    gMeme.lines[0].size = gMeme.lines[0].size + unit
-    gMeme.lines[1].size = gMeme.lines[1].size + unit
-    writeOnCanvas('text1', '1', false)
-    writeOnCanvas('text2', '2', false)
 
 }
 
+function onSetTextSize(unit, elName) {
 
-function setTextLocation(unit) {
+    updateMeme('lines',unit,'_size')
 
-    gMeme.lines[0].ypos = gMeme.lines[0].ypos + unit
-    writeOnCanvas('text1', '1', false)
+    getMeme().lines.forEach((line,index) => {
 
-}
+        var ind = index+1
+        var txt = 'text'+ind
+       
+        onWriteOnCanvas(txt.trim(), index+1, false)
 
-function switcLines() {
-
-    console.log(gMeme.lines[0].txt, ' ', gMeme.lines[1].txt)
-
-    var repTxt = gMeme.lines[0].txt
-    gMeme.lines[0].txt = gMeme.lines[1].txt
-    gMeme.lines[1].txt = repTxt
-
-    console.log(gMeme.lines[0].txt, ' ', gMeme.lines[1].txt)
-
-    writeOnCanvas('text1', '1', true)
-    writeOnCanvas('text2', '2', true)
+    });
 
 }
 
-function changeTxtColor() {
+function onSetTextLocation(unit) {
+
+    updateMeme('lines',unit,'ypos')
+
+    onWriteOnCanvas('text1', '1', false)
+}
+
+
+function onSwitcLines() {
+
+    switchLines()
+
+    getMeme().lines.forEach((line,index) => {
+
+        var ind = index+1
+        var txt = 'text'+ind
+       
+        onWriteOnCanvas(txt.trim(), index+1, true)
+
+    });
+
+}
+
+function onChangeTxtColor() {
 
     var elColor = document.getElementById("chosecolor");
     var _color = elColor.value
-    gMeme.lines[0].color = _color
-    gMeme.lines[1].color = _color
-    writeOnCanvas('text1', '1', false)
-    writeOnCanvas('text2', '2', false)
+
+    updateMeme('lines',_color,'color')
+
+    getMeme().lines.forEach((line,index) => {
+
+        var ind = index+1
+        var txt = 'text'+ind
+       
+        onWriteOnCanvas(txt.trim(), index+1, false)
+
+    });
 
 }
 
 
-function changeTxtFontFam() {
+function onChangeTxtFontFam() {
     var elFfam = document.getElementById("fontfam");
     var _ffam = elFfam.value
 
-    gMeme.lines[0].fontfam = _ffam
-    gMeme.lines[1].fontfam = _ffam
-    writeOnCanvas('text1', '1', false)
-    writeOnCanvas('text2', '2', false)
+    updateMeme('lines',_ffam,'fontfam')
+
+    getMeme().lines.forEach((line,index) => {
+
+        var ind = index+1
+        var txt = 'text'+ind
+       
+        onWriteOnCanvas(txt.trim(), index+1, false)
+
+    });
 
 }
 
-function changTxtSize() {
+function onChangTxtSize() {
+
     var elTsize = document.getElementById("fsize");
     var _tsize = elTsize.value
 
-    gMeme.lines[0].size = _tsize
-    gMeme.lines[1].size = _tsize
-    writeOnCanvas('text1', '1', false)
-    writeOnCanvas('text2', '2', false)
+    updateMeme('lines',_tsize,'size')
+
+
+    getMeme().lines.forEach((line,index) => {
+
+        var ind = index+1
+        var txt = 'text'+ind
+       
+        onWriteOnCanvas(txt.trim(), index+1, false)
+
+    });
+    
+}
+
+function onSetAlig(alig) {
+
+    // gMeme.lines[0].align = alig
+    // gMeme.lines[1].align = alig
+
+
+    updateMeme('lines',alig,'align')
+
+    
+    getMeme().lines.forEach((line,index) => {
+
+        var ind = index+1
+        var txt = 'text'+ind
+       
+        onWriteOnCanvas(txt.trim(), index+1, false)
+
+    });
+    // onWriteOnCanvas('text1', '1', false)
+    // onWriteOnCanvas('text2', '2', false)
+    // writeOnCanvas('text1', '1', false)
+    // writeOnCanvas('text2', '2', false)
 
 }
 
-function setalig(alig) {
+// function onClearTxt() {
 
-    gMeme.lines[0].align = alig
-    gMeme.lines[1].align = alig
-    writeOnCanvas('text1', '1', false)
-    writeOnCanvas('text2', '2', false)
+//     updateMeme('lines','','txt')
 
-}
 
-function clearTxt() {
+//     getMeme().lines.forEach((line,index) => {
+
+//         var ind = index+1
+//         var txt = 'text'+ind
+       
+//         onWriteOnCanvas(txt.trim(), index+1, false)
+
+
+//     });
+
+// }
+
+function onClearTxt() {
 
     gMeme.lines[0].txt = ''
     gMeme.lines[1].txt = ''
-    writeOnCanvas('text1', '1', true)
-    writeOnCanvas('text2', '2', true)
+    
+        getMeme().lines.forEach((line,index) => {
+
+        var ind = index+1
+        var txt = 'text'+ind
+       
+        onWriteOnCanvas(txt.trim(), index+1, false)
+
+
+    });
+    // writeOnCanvas('text1', '1', true)
+    // writeOnCanvas('text2', '2', true)
 }
 
 
@@ -183,23 +237,6 @@ function loadImageFromInput(ev, onImageReady) {
     }
     reader.readAsDataURL(ev.target.files[0]);
 }
-
-
-function drawLine(x, y, xEnd = +300, yEnd = y) {
-    gCtx.beginPath()
-    gCtx.moveTo(x-80, y)
-    gCtx.lineTo(xEnd, yEnd)
-    gCtx.closePath()
-    // gCtx.strokeStyle = 'black'
-    gCtx.stroke()
-
-}
-function clearCanvas(x,y) {
-    gCtx.clearRect(x, y ,300, 1)
-    // You may clear part of the canvas
-    // gCtx.clearRect(50, 50, 200, 200);
-}
-
 
 
 

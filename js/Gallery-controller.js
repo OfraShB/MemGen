@@ -1,10 +1,6 @@
 
 'use strict'
 
-// var gCanvas;
-// var gCtx;
-
-
 
 function onInit() {
     gCanvas = document.getElementById('my-canvas');
@@ -78,21 +74,6 @@ function loadMemToCanavas(id) {
         }
 
 
-
-// var gMeme = {
-//     selectedImgId: 0,
-//     selectedLineIdx: 0,
-
-//     //later
-//     lines: [
-//         {
-//             txt: 'I never eat Falafel',
-//             size: 20,
-//             align: 'left',
-//             color: 'red'
-//         }
-//     ]
-// }
 
 
 

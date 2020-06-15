@@ -2,7 +2,7 @@
 
 const KEY = 'imgs';
 var gPageIdx = 0;
-const PAGE_SIZE = 4;
+const PAGE_SIZE = 8;
 
 var gKeywords = { 'nice': 12, 'cute': 1 }
 
@@ -11,23 +11,6 @@ var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['happy', 'rich'] },
 { id: 3, url: 'img/3.jpg', keywords: ['cute', 'nice', 'sleepy', 'happy'] },];
 
 var gWordsStok = ['nice', 'cute', 'happy', 'sleepy', 'rich']
-
-
-
-// var gMeme = {
-//     selectedImgId: 0,
-//     selectedLineIdx: 0,
-
-//     //later
-//     lines: [
-//         {
-//             txt: 'I never eat Falafel',
-//             size: 20,
-//             align: 'left',
-//             color: 'red'
-//         }
-//     ]
-// }
 
 
 function getImgs() {
@@ -65,7 +48,7 @@ function createImgs() {
     var imgs = loadFromStorage(KEY)
     if (!imgs || !imgs.length) {
         imgs = []
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 8; i++) {
 
             imgs.push(_createImg(i + 1))
         }

@@ -59,17 +59,14 @@
 
             <div class="container pics-container">
 
-                <!-- <img class="mempic 1" src="img/1.jpg" onclick="loadMemToCanavas(this)">
-        <img class="mempic 2" src="img/2.jpg">
-        <img class="mempic 3" src="img/3.jpg">
-        <img class="mempic 4" src="img/4.jpg">
-        <img class="mempic 5" src="img/5.jpg">
-        <img class="mempic 6" src="img/6.jpg"> -->
+
+
+                <button class="btn-next" onclick="onNextPage()">Next Page</button>
 
             </div>
             <!-- <input type="button" class="font-btn increase" onclick="setTextSize(5)" />  -->
         </div>
-        <button class="btn-next" onclick="onNextPage()">Next Page</button>
+       
 
 
         <div id="myModal" class="modal">
@@ -88,26 +85,26 @@
 
                     <!-- <label for="text1">text1:</label> -->
                     <input class="txt text1" type="text" id="text1" name="1" placeholder="enter 1st text"
-                        oninput="writeOnCanvas(id,name)" />
+                        oninput="onWriteOnCanvas(id,name)" />
 
                     <!-- <label for="teclassxt2">text2:</label> -->
                     <input class="txt text2" type="text" id="text2" name="2" placeholder="enter 2nd text"
-                        oninput="writeOnCanvas(id,name)" />
+                        oninput="onWriteOnCanvas(id,name)" />
                     <!-- <input type="button" class="font-btn increase" onclick="setTextSize(5)" /> -->
 
-                    <button class="font-btn increase" onclick="setTextSize(5)"><img
+                    <button class="font-btn increase" onclick="onSetTextSize(5)"><img
                             src="icons/increase_1_1.png"></button>
-                    <button class="font-btn decrease" onclick="setTextSize(-5)"><img
+                    <button class="font-btn decrease" onclick="onSetTextSize(-5)"><img
                             src="icons/decrease_1.png"></button>
 
                     <container class="updown">
 
-                        <button class="updown-btn up" onclick="setTextLocation(5)"><img src="icons/down_1.png"></button>
-                        <button class="updown-btn down" onclick="setTextLocation(-5)"><img src="icons/up_1.png"></button>
+                        <button class="updown-btn up" onclick="onSetTextLocation(5)"><img src="icons/down_1.png"></button>
+                        <button class="updown-btn down" onclick="onSetTextLocation(-5)"><img src="icons/up_1.png"></button>
 
                     </container>
 
-                    <button class="switch-line" onclick="switcLines()"><img src="icons/switch_1.png"></button>
+                    <button class="switch-line" onclick="onSwitcLines()"><img src="icons/switch_1.png"></button>
                     <!-- <div style="position:relative; display:inline-block" class="chcolor">
                         <button type="button" class="btn btn-secondary herramienta"><i class="material-icons">format_color_text</i></button>
                         <input type="color" value="#ff0000" style="opacity:0; position:absolute; left:0;top:0;width:100%" onchange="changeTxtColor()"/>
@@ -115,13 +112,13 @@
 
 
                     <input class="chcolor" type="color" id="chosecolor" name="chosecolor" value="#ff9999"
-                        onchange="changeTxtColor()" />
+                        onchange="onChangeTxtColor()" />
 
                     <!-- <label for="font-fam">Impact</label> -->
 
                     <!-- <label for="fontfam" class="lblffam">Impact</label> -->
                     <!-- onselect -->
-                    <select class="ffam" name="fontfam" id="fontfam" onchange="changeTxtFontFam()">
+                    <select class="ffam" name="fontfam" id="fontfam" onchange="onChangeTxtFontFam()">
                         <option class="Impact" value="Impact">Impact</option>
                         <option value="Arial">Arial</option>
                         <option value="Times New Roman">Times New Roman</option>
@@ -132,7 +129,7 @@
 
                     <!-- <label for="fsize">Choose a car:</label> -->
 
-                    <select class="fsiz" name="fsize" id="fsize" onchange="changTxtSize()">
+                    <select class="fsiz" name="fsize" id="fsize" onchange="onChangTxtSize()">
                         <option value="30">30</option>
                         <option value="40">40</option>
                         <option value="50">50</option>
@@ -140,11 +137,11 @@
                         <option value="70">70</option>
                     </select>
 
-                    <button class="btnright" name="right" onclick="setalig(name)"><img src="icons/right_1.png"></button>
-                    <button class="btncenter" name="center" onclick="setalig(name)"><img
+                    <button class="btnright" name="right" onclick="onSetAlig(name)"><img src="icons/right_1.png"></button>
+                    <button class="btncenter" name="center" onclick="onSetAlig(name)"><img
                             src="icons/center_1.png"></button>
-                    <button class="btnleft" name="left" onclick="setalig(name)"><img src="icons/left_1.png"></button>
-                    <button class="btnclear" onclick="clearTxt()"><img src="icons/trash_1.png"></button>
+                    <button class="btnleft" name="left" onclick="onSetAlig(name)"><img src="icons/left_1.png"></button>
+                    <button class="btnclear" onclick="onClearTxt()"><img src="icons/trash_1.png"></button>
 
                     <!-- <section class="publish">
                         <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
